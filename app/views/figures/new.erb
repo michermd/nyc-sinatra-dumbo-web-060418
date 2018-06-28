@@ -6,7 +6,7 @@
 
   <% @titles.each do |title|%>
     <label for="titles"><%= title.name %></label>
-    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>">
+    <input id= "title_<%= title.id %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>">
     <!-- any box that is checked, their value is included in the array -->
   <% end %>
   <!-- checkbox in params: -->
