@@ -1,0 +1,28 @@
+<form action="/figures" method="POST">
+  <label for="name">Name</label>
+    <input id ="figure_name" type="text" name="figure[name]">
+
+<h3>Titles</h3>
+
+  <% @titles.each do |title|%>
+    <label for="titles"><%= title.name %></label>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>">
+    <!-- any box that is checked, their value is included in the array -->
+  <% end %>
+  <!-- checkbox in params: -->
+  <!-- {figure: {name: "some figure's name", title_ids: ["1", '3']}} -->
+
+<h2>Create New Title:</h2>
+<input id="" type="text" name="title[name]">
+
+
+<h2>Landmarks</h2>
+<% @landmarks.each do |landmark|%>
+  <p><label for="landmarks"><%= landmark.name %></label><input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>"></p>
+<% end %>
+
+<h2>Create New Landmark:</h2>
+Name: <input type="text" name="landmark[name]" value=""> Year: <input type="text" name="" value="">
+
+<input type="submit" value="Create New Figure">
+</form>
